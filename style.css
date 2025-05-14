@@ -1,0 +1,409 @@
+body {
+    margin: auto;
+}
+
+.active {
+    color: #3882f6;
+}
+
+.grandheader {
+    background-image: url('./images/bg3.jpg');
+    background-size: cover;
+    height: 600px;
+}
+
+.grandheader2 {
+    background-color: #f9faf8;
+    background-size: cover;
+    height: 600px;
+}
+
+.header {
+    display: flex;
+    font-size: 18px;
+    color: #e5e7eb;
+    justify-content: space-around;
+    position:fixed;
+    background-color: #1f2937;
+    width: 100%;
+
+}
+
+
+.bodyone {
+    display: flex;
+    padding: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+}
+
+.bodyonetwo {
+    display: flex;
+    padding: 50px;
+    align-items: space-between;
+    justify-content: space-around;
+    background-color: #e5e7eb;
+    gap: 150px;
+}
+
+.text3 {
+    width: 600px;
+}
+
+.emptyBut {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    color:#3882f6
+}
+
+.botext {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 435px;
+    gap: 10px;
+    flex-shrink: 1;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.info {
+    text-align: center;
+    color: #1f2937;
+    font-weight: 900;
+}
+
+.logo {
+    font-size: 24px;
+    color: #f9faf8;
+    font-weight: 900;
+    align-content: center;
+    justify-self: flex-start;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #f9faf8;
+}
+
+.hero {
+    font-size: 48px;
+    font-weight: 900;
+    color: #3882f6;
+    margin-top: 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.button1 {
+    background-color: #3882f6;
+    color: #e5e7eb;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 150px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: #e5e7eb;
+}
+
+.dolphin {
+    height: 250px;
+    margin-top: 50px;
+    margin-right: 75px;
+    width: 450px;
+    align-self: flex-start;
+}
+
+.hold {
+    display: flex;
+    max-width: 250px;
+    flex-wrap: 100px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hold2 {
+    display: flex;
+    max-width: 400px;
+    flex-wrap: 100px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: left;   
+}
+
+.hold3 {
+    display: flex;
+    max-width: 400px;
+    flex-wrap: 100px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: left;   
+}
+
+.bodyonetwo2 {
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    background-color: #e5e7eb;
+    gap: 150px;
+}
+
+.boxman {
+    height: 200px;
+    width: 250px;
+    border: 2px solid #3882f6;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.boxman2 {
+    height: 250px;
+    width: 350px;
+    border: 2px solid #3882f6;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.boxman3 {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #3882f6;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.text {
+    flex: 1 1 auto;
+}
+
+.imagehold {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.subhold {
+    display: flex;
+    gap: 150px;
+    justify-content: space-around;
+}
+
+.subhold2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+}
+
+.subhold3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 75px;
+}
+
+.subinfo {
+    font-weight: 900;
+}
+
+.bodytwo {
+    margin-bottom: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bodytwoone {
+background-color: #3882f6;
+}
+
+.bodythree {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+    
+}
+
+.bodythreetwo {
+    background-color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.bodythreethree {
+    background-color: #ffffff;
+    margin-top: 50px;
+    padding: 25px;
+}
+
+.bodythreefour {
+    background-color: #e5e7eb;
+    border: 4px solid #1f2937;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px;
+}
+
+.clients {
+    display: flex;
+    gap: 10px;
+
+}
+
+.imgbox {
+    width: 300px;
+    height: 300px;
+}
+
+.boxoneforms {
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
+
+.boxoneforms {
+    border: 1px solid darkgray;
+    padding: 25px;
+}
+
+.boxone {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.testimonial {
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.testimonial2 {
+    width: 800px;
+}
+
+.author {
+    font-size: 30px;
+
+}
+
+.bodyfourone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("./images/bg4-2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    height: 600px;
+    background-size: cover;
+    margin: 5px;
+}
+
+.bodyfour {
+    display: flex;
+    background-color: #3882f6;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding: 25px;
+    margin: 75px;
+}
+
+.bftext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button2 {
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    font-weight: 600;
+    color: white;
+    background-color: #3882f6;
+    cursor: pointer;
+    border: 2px solid #e5e7eb;
+}
+
+.footer {
+    display: flex;
+    background-color: #1f2937;
+    text-align: center;
+    color: #e5e7eb;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 25px;
+    text-align: left;
+
+}
+
+.workingtable {
+    border: 1px solid white;
+}
+
+.footertop {
+    display: flex;
+    border: 0.5px solid white;
+    width: 100%;
+    justify-content: space-around;
+    padding: 50px;
+}
+.footersub {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+
+.subbtn {
+    display: flex;
+}
+
+.text1 {
+    color: black;
+    font-size: 20px;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor:pointer;
+}
+
+*, :after, :before, input[type=search] {
+    box-sizing: border-box;
+}
+
+a:hover {
+    color: #3882f6;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1f4d8d;
+    transition: 0.3s;
+}
+
