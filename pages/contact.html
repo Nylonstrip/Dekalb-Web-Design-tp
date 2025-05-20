@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css"></a>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../java.js"></script>
     <title>Landing Page</title>
 </head>
 <body>
@@ -41,10 +42,11 @@
             <div class="boxoneforms">
             <div class="boxoneformsa">
                 <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
                 <label for="fname"></label>
                 <input type="text" id="fname" name="firstname" placeholder="Name/Company Name">
-                <label for="lname"></label>
-                <input type="text" id="lname" name="lastname" placeholder="E-mail">
+                <label for="email"></label>
+                <input type="text" id="email" name="email" placeholder="E-mail">
                 <label for="phone"></label>
                 <input type="text" id="phone" name="phonenumber" placeholder="Contact Number">
                 <select id="currwebsite" name="currwebsite">
@@ -113,7 +115,7 @@
                 <h3>SUBSCRIBE</h3>
                 <div>
                     <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
-                        
+                        <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
                         <div>
                             <label for="tnp-1"></label>
                             <input type="email" name="email" placeholder="Email" required>
