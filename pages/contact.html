@@ -3,15 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dekalb Web Design</title>
     <link rel="stylesheet" href="../style.css">
-    <script src="../java.js"></script>
-    <title>Landing Page</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #3882f6;
+            --primaryLight: #6ea3f8;
+            --secondary: #6ea3f8;
+            --secondaryLight: #6ea3f8;
+            --headerColor: #1a1a1a;
+            --bodyTextColor: #4e4b66;
+            --bodyTextColorWhite: #fafbfc;
+            /* 13px - 16px */
+            --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+            /* 31px - 49px */
+            --headerFontSize: clamp(1.5rem, 3.9vw, 3.0625rem);
+            --bodyFontSize: 1rem;
+            /* 60px - 100px top and bottom */
+            --sectionPadding: clamp(2rem, 7.82vw, 6.25rem) 1rem;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--headerColor);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        .text1 {
+            color: black;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        /* Utility Classes */
+        .active {
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: #e5e7eb;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        button:hover {
+            background-color: #1f4d8d;
+            transition: 0.3s;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            color: #e5e7eb;
+            background-color: #1f2937;
+            width: 100%;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #f9faf8;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            background-image: url('./images/bg3.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: var(--sectionPadding);
+            background-color: #f7f7f7;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #1f4d8d;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .info-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--headerColor);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            color: var(--bodyTextColor);
+        }
+
+        /* Business Hours */
+        .hours-table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .hours-table td,
+        .hours-table th {
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .hours-table th {
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            padding: clamp(2rem, 5vw, 4rem) 1rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            background-color: #1f2937;
+            color: #e5e7eb;
+            flex-direction: column;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footertop {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .footersub {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            gap: 10px;
+            padding: 0 1rem;
+        }
+
+        .subbtn {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .subbtn input {
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .subbtn button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Media Queries */
+        @media only screen and (min-width: 48rem) {
+            /* Tablet and up */
+            .header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .submit-btn {
+                width: auto;
+                max-width: 200px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .footertop {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+        @media only screen and (min-width: 64rem) {
+            /* Desktop */
+            .contact-container {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media only screen and (min-width: 80rem) {
+            /* Large Desktop */
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="grandheader2" style="height: 295px;">
-    <div class="header">
+    <header class="header">
         <div class="logo">
-            <a href="../index.html" style="color: #3882f6; font-size: 30px;">DEKALB WEB DESIGN</a>
+            <a href="../index.html" style="color: #3882f6; font-size: clamp(1.5rem, 3vw, 1.875rem);">DEKALB WEB DESIGN</a>
         </div>
         <ul class="links">
             <li><a href="../index.html">Home</a></li>
@@ -19,73 +433,150 @@
             <li><a href="./about.html">About Us</a></li>
             <li><a href="./contact.html" class="active">Contact Us</a></li>
         </ul>
-    </div>
-    <div class="bodyone">
-        <div class="botext">
-            <div class="hero1">CONTACT US</div>
-            <div class="text1">Home/Contact Us
-            </div>
+    </header>
 
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Contact Us</h1>
+            <p class="text1">Ready to get started? Get in touch with us today and let's discuss your web design needs.</p>
         </div>
-    </div>
-</div>
-    </div>
+    </section>
 
-    <div class="bodythreetwo">
-        <div class="firstbox">
-            <div class="boxone">
-            <div class="testimonial">GET A FREE QUOTE CALCULATION</div>
-            <div class="testimonial2">For a quick calculation of what we can offer you, please send us your info, by filling out the form below. 
-                We will build you the best possible offer for your business to run as smooth 
-                as it can.
-            </div>
-            <div class="boxoneforms">
-            <div class="boxoneformsa">
-                <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
-                <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
-                <label for="fname"></label>
-                <input type="text" id="fname" name="firstname" placeholder="Name/Company Name">
-                <label for="email"></label>
-                <input type="text" id="email" name="email" placeholder="E-mail">
-                <label for="phone"></label>
-                <input type="text" id="phone" name="phonenumber" placeholder="Contact Number">
-                <select id="currwebsite" name="currwebsite">
-                    <option value="none">Current Website?</option>
-                    <option value="Current Website Yes">Yes</option>
-                    <option value="Current Website No">No</option>
-                </select>
-            </div>
-            <div class="workworkwork">
-                <label for="addinfo"></label>
-                <input type="text" id="addinfo" name="info" placeholder="Additional Information?" style="width: 695px; height: 300px;">
-                <button class="button1" style="align-self: center;">SUBMIT QUOTE REQUEST</button>
-            </form>
-            </div>
-            </div>
-            </div>
-            </div>
-    </div>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2 style="margin-bottom: 1.5rem; text-align: center;">Get Your Free Quote</h2>
+                <form action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                    <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
 
-    <div class="bodythree">
-        <div class="testimonial">REACH YOUR POTENTIAL FASTER AND WITH EASE</div>
-        <div class="author">We will take care of your website needs and services and take the load off you.</div>
-        <a href="./contact.html">
-            <button class="button1">Join Us Today</button>
-        </a>
-    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
 
-    <div class="bodyfour">
-        <div class="bftext">
-    <div class="logo">Contact Us Today</div>
-    <div>Affordable and reliable web design services out of Dekalb County GA. <br>We serve businesses new and old and offer
-        them what they need to assist <br> and grow their presense online.
-    </div>
-</div>
-    <a href="./contact.html">
-        <button class="button2">Contact Us</button>
-    </a>
-    </div>
-    <div class="footer">
+                    <div class="form-group">
+                        <label for="company">Company/Business Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="monthly-plan">Monthly Plan ($150/month)</option>
+                            <option value="lump-sum">Lump Sum ($2000)</option>
+                            <option value="consultation">Free Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Estimated Budget</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="under-1000">Under $1,000</option>
+                            <option value="1000-2500">$1,000 - $2,500</option>
+                            <option value="2500-5000">$2,500 - $5,000</option>
+                            <option value="5000-plus">$5,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Project Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select timeline</option>
+                            <option value="asap">ASAP</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="2-3-months">2-3 months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Project *</label>
+                        <textarea id="message" name="message" placeholder="Please describe your website needs, business goals, and any specific requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <h3 class="info-title">Phone</h3>
+                    <p class="info-text">+252 558 8589</p>
+                    <p class="info-text">Available 24/7</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📧</div>
+                    <h3 class="info-title">Email</h3>
+                    <p class="info-text">info@dekalbwebdesign.com</p>
+                    <p class="info-text">Quick response guaranteed</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h3 class="info-title">Location</h3>
+                    <p class="info-text">Dekalb County, Georgia</p>
+                    <p class="info-text">Serving all of Georgia & beyond</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <h3 class="info-title">Business Hours</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Support:</td>
+                            <th>24/7</th>
+                        </tr>
+                        <tr>
+                            <td>Consultations:</td>
+                            <th>By Appointment</th>
+                        </tr>
+                        <tr>
+                            <td>Emergency:</td>
+                            <th>24/7</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-text">
+                Join hundreds of satisfied clients who trust Dekalb Web Design for their online presence. 
+                Let's build something amazing together!
+            </p>
+            <button class="cta-btn" onclick="document.querySelector('.contact-form').scrollIntoView({behavior: 'smooth'})">
+                Get Free Quote
+            </button>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="footertop">
             <div class="footersub">
                 <h3>DEKALB WEB DESIGN</h3>
@@ -93,7 +584,7 @@
             </div>
             <div class="footersub">
                 <h3>NAVIGATION</h3>
-                <ul style="margin-top: -5px;">
+                <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="./services.html">Services</a></li>
                     <li><a href="./about.html">About Us</a></li>
@@ -108,26 +599,25 @@
                         <tr>
                             <td>Hours</td>
                             <th>24/7</th>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div class="footersub">
                 <h3>SUBSCRIBE</h3>
-                <div>
-                    <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
                     <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
-                        <div>
-                            <label for="tnp-1"></label>
-                            <input type="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div style="text-align: left;">
-                            <button type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+                    <div>
+                        <label for="footerEmail"></label>
+                        <input type="email" id="footerEmail" name="email" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div>Copyright © Dekalb Web Designs 2025</div>
-    </div>
+        <div style="padding: 1rem 0;">Copyright © Dekalb Web Designs 2025</div>
+    </footer>
 </body>
 </html>

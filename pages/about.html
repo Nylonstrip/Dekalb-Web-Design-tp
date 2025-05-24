@@ -3,14 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css"></a>
-    <title>Landing Page</title>
+    <title>About Us - Dekalb Web Design</title>
+    <link rel="stylesheet" href="../style.css"></rel>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #3882f6;
+            --primaryLight: #6ea3f8;
+            --secondary: #6ea3f8;
+            --secondaryLight: #6ea3f8;
+            --headerColor: #1a1a1a;
+            --bodyTextColor: #4e4b66;
+            --bodyTextColorWhite: #fafbfc;
+            /* 13px - 16px */
+            --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+            /* 31px - 49px */
+            --headerFontSize: clamp(1.5rem, 3.9vw, 3.0625rem);
+            --bodyFontSize: 1rem;
+            /* 60px - 100px top and bottom */
+            --sectionPadding: clamp(2rem, 7.82vw, 6.25rem) 1rem;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--headerColor);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        .text1 {
+            color: black;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        /* Utility Classes */
+        .active {
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: #e5e7eb;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        button:hover {
+            background-color: #1f4d8d;
+            transition: 0.3s;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            color: #e5e7eb;
+            background-color: #1f2937;
+            width: 100%;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #f9faf8;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background-image: url('./images/bg3.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            padding: var(--sectionPadding);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-bg-gray {
+            background-color: #e5e7eb;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .column {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .column img {
+            border-radius: 10px;
+            border: 3px solid var(--primary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: var(--sectionPadding);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--headerColor);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem auto;
+            background-color: var(--primaryLight);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--headerColor);
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            padding: clamp(2rem, 5vw, 4rem) 1rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            background-color: #1f2937;
+            color: #e5e7eb;
+            flex-direction: column;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footertop {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .footersub {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            gap: 10px;
+            padding: 0 1rem;
+        }
+
+        .subbtn {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .subbtn input {
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .subbtn button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Media Queries */
+        @media only screen and (min-width: 48rem) {
+            .header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+            }
+
+            .two-column {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .footertop {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+        @media only screen and (min-width: 64rem) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="grandheader2" style="height: 400px;">
-    <div class="header">
+    <header class="header">
         <div class="logo">
-            <a href="../index.html" style="color: #3882f6; font-size: 30px;">DEKALB WEB DESIGN</a>
+            <a href="../index.html" style="color: #3882f6; font-size: clamp(1.5rem, 3vw, 1.875rem);">DEKALB WEB DESIGN</a>
         </div>
         <ul class="links">
             <li><a href="../index.html">Home</a></li>
@@ -18,37 +414,180 @@
             <li><a href="./about.html" class="active">About Us</a></li>
             <li><a href="./contact.html">Contact Us</a></li>
         </ul>
+    </header>
+
+    <div class="page-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">About Dekalb Web Design</h1>
+            <p class="text1">Your trusted partner in professional web development and digital solutions</p>
+        </div>
     </div>
-    <div class="bodyone">
-        <div class="botext">
-            <div class="hero1">ABOUT US</div>
-            <div class="text1">Home/About Us
+
+    <section class="content-section">
+        <div class="two-column">
+            <div class="column">
+                <h2>Our Story</h2>
+                <p class="text1" style="margin-bottom: 1rem;">
+                    Founded in the heart of Dekalb County, Georgia, Dekalb Web Design has been serving businesses 
+                    with professional web development services for over 10 years. We started with a simple mission: 
+                    to provide high-quality, affordable web design services that help local businesses thrive in the digital world.
+                </p>
+                <p class="text1">
+                    What sets us apart is our commitment to hand-coding every website from scratch. While others rely on 
+                    page builders and templates, we craft custom solutions that are faster, more secure, and perfectly 
+                    tailored to your business needs.
+                </p>
+            </div>
+            <div class="column">
+                <img src="../images/webdesignwrkspc.svg" alt="Web design workspace" />
             </div>
         </div>
-</div>
-    <div class="bodyonetwo2">
-        <h2 style="color: black;">Creating your vision is our job</h2>
-        <h3 class="text3" style="border: 3px dotted #3882f6; padding: 25px;">We are a Web Design Company that focuses on building reliable and affordable websites for businesses of all shapes and sizes.
-            Whether you're a upstart business or a well established one, we are here for you. <br> 
-            We've taken away the hassle of website creation and managament from our clients for over 10 years!
-        </h3>
-    </div>
-    <div class="subhold3" style="flex-direction: column; gap: 1px;">
-    <h2 style="color: #333;">Origin</h2>
-    <div style="display: flex; gap: 100px;">
-    <h3 style="width: 500px; text-align: center;">Dekalb Web Designs was created in 2017 as a small side business by Tory Keals (thats me!) I've been fascinated in computer science ever since i 
-        was in highschool, and proceeded to study it all the way through college and to this day. I'm fascinated in all things
-        coding and i'm here to bring those skills to you! 
-        <br>
-        <br>
-        Our Expertises?
-        <br>
-        <br>
-        We're skilled in website builders but our motto is to give our clients better. So all websites we build for our clients
-        are hand made and built suited to our clients. </h3>
-        <img src="../images/header.png">
-    </div>
-    </div>
+    </section>
+
+    <section class="stats-section">
+        <h2>Our Impact</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 1rem;">
+            Numbers that showcase our commitment to excellence
+        </p>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Years of Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Websites Created</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support Available</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Hand Coded</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-bg-gray">
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🎯</div>
+                <div class="value-title">Quality First</div>
+                <p>Every line of code is written with precision and purpose, ensuring your website performs flawlessly.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <div class="value-title">Client Partnership</div>
+                <p>We believe in building long-term relationships, not just delivering one-time projects.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">💡</div>
+                <div class="value-title">Innovation</div>
+                <p>We stay current with the latest web technologies to give your business a competitive edge.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🇺🇸</div>
+                <div class="value-title">Local Expertise</div>
+                <p>As a U.S.-based company in Georgia, we understand the local market and business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Why Choose Hand-Coded Websites?</h2>
+        <div class="two-column">
+            <div class="column">
+                <img src="../images/cleancode.svg" alt="Clean code on computer screen" />
+            </div>
+            <div class="column">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">The Difference is Clear</h3>
+                <p class="text1" style="margin-bottom: 1rem;">
+                    While many agencies rely on WordPress, Wix, or other page builders, we take a different approach. 
+                    Every website we create is built from the ground up using clean, efficient code.
+                </p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem; color: var(--bodyTextColor);">✓ Faster loading speeds</li>
+                    <li style="margin-bottom: 0.5rem; color: var(--bodyTextColor);">✓ Better search engine optimization</li>
+                    <li style="margin-bottom: 0.5rem; color: var(--bodyTextColor);">✓ Enhanced security</li>
+                    <li style="margin-bottom: 0.5rem; color: var(--bodyTextColor);">✓ Complete customization</li>
+                    <li style="margin-bottom: 0.5rem; color: var(--bodyTextColor);">✓ No unnecessary bloat</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-bg-gray">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">ST</div>
+                <div class="member-name">Sal Tillery</div>
+                <div class="member-role">Lead Developer</div>
+                <p>With over 10 years of experience in web development, Sal leads our technical team and ensures every project meets our high standards.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">JC</div>
+                <div class="member-name">Jae Childs</div>
+                <div class="member-role">UI/UX Designer</div>
+                <p>Jae brings creativity and user-focused design to every project, ensuring websites are both beautiful and functional.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">CR</div>
+                <div class="member-name">Coleman Randolph</div>
+                <div class="member-role">Project Manager</div>
+                <p>Coleman ensures every project runs smoothly and clients are kept informed throughout the development process.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="two-column">
+            <div class="column">
+                <h2>Our Process</h2>
+                <p class="text1" style="margin-bottom: 1rem;">
+                    We follow a proven process that ensures your project is completed on time, within budget, 
+                    and exceeds your expectations.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">1. Discovery & Planning</h4>
+                        <p>We learn about your business, goals, and target audience to create the perfect strategy.</p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">2. Design & Development</h4>
+                        <p>Our team creates custom designs and hand-codes your website for optimal performance.</p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">3. Testing & Launch</h4>
+                        <p>Thorough testing ensures everything works perfectly before your site goes live.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">4. Ongoing Support</h4>
+                        <p>We provide continuous support and maintenance to keep your website running smoothly.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <img src="../images/webdevpro.svg" alt="Web development process diagram" />
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Work Together?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                Let's discuss how we can help your business succeed online with a custom, hand-coded website 
+                that sets you apart from the competition.
+            </p>
+            <button class="cta-btn" onclick="document.querySelector('.contact-form').scrollIntoView({behavior: 'smooth'})">
+                Get Free Quote
+            </button>
+        </div>
+    </section>
+
     <div class="footer">
         <div class="footertop">
             <div class="footersub">
@@ -57,7 +596,7 @@
             </div>
             <div class="footersub">
                 <h3>NAVIGATION</h3>
-                <ul style="margin-top: -5px;">
+                <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="./services.html">Services</a></li>
                     <li><a href="./about.html">About Us</a></li>
@@ -72,26 +611,25 @@
                         <tr>
                             <td>Hours</td>
                             <th>24/7</th>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div class="footersub">
                 <h3>SUBSCRIBE</h3>
-                <div>
-                    <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
                     <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
-                        <div>
-                            <label for="tnp-1"></label>
-                            <input type="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div style="text-align: left;">
-                            <button type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+                    <div>
+                        <label for="email"></label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div>Copyright © Dekalb Web Designs 2025</div>
+        <div style="padding: 1rem 0;">Copyright © Dekalb Web Designs 2025</div>
     </div>
 </body>
 </html>
