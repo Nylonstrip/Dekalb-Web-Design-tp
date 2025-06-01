@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions - DeKalb Web Design. Get answers about our web design services, pricing, hosting, and support in DeKalb County, GA.">
+    <title>FAQ - Dekalb Web Design</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* FAQ Specific Styles */
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .faq-header h1 {
+            color: #0252b1;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .faq-header p {
+            color: #666;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .faq-category {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-title {
+            color: #0252b1;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            background: #0252b1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #0252b1;
+            box-shadow: 0 2px 8px rgba(2, 82, 177, 0.1);
+        }
+
+        .faq-question {
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+            color: #0252b1;
+        }
+
+        .faq-question.active {
+            background: #0252b1;
+            color: white;
+        }
+
+        .faq-toggle {
+            font-size: 1.25rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem;
+            border-top: 1px solid #e0e6ed;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer strong {
+            color: #0252b1;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #0252b1 0%, #0369d1 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-cta h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-cta p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: white;
+            color: #0252b1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                padding: 2rem 1rem;
+            }
+            
+            .faq-categories {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .faq-category {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="../index.html" style="color: #ffffff; font-size: clamp(1.5rem, 3vw, 1.875rem);">DEKALB WEB DESIGN</a>
+    </div>
+    <ul class="links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./faq.html" class="active">FAQ</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+</header>
+
+<div class="faq-container">
+    <div class="faq-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our web design services, pricing, and process. Can't find what you're looking for? Contact us directly!</p>
+    </div>
+
+    <div class="faq-categories">
+        <!-- General Questions -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">?</span>
+                General Questions
+            </h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What makes DeKalb Web Design different?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We're a <strong>US-based company</strong> located right here in DeKalb County, GA. All our websites are <strong>100% hand-coded from scratch</strong> - no page builders or templates. This means faster loading times, better SEO performance, and completely custom designs tailored to your business.</p>
+                    <p>Plus, we offer <strong>24/7 support</strong> and build long-lasting relationships with our clients rather than just one-time transactions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Do you work with businesses outside of DeKalb County?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! While we're proud to be based in DeKalb County, GA, we work with businesses throughout Georgia and across the United States. Our digital services allow us to collaborate effectively with clients anywhere.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How long does it take to build a website?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most websites are completed within <strong>2-4 weeks</strong> depending on complexity and the number of pages. Single pages can often be completed within a week.</p>
+                    <p>The timeline includes design consultation, development, revisions, and testing. We'll provide you with a specific timeline during our initial consultation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Questions -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">$</span>
+                Pricing & Plans
+            </h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Why choose the monthly plan over lump sum?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our <strong>$150/month plan</strong> is perfect for businesses that want:</p>
+                    <p>• <strong>No upfront costs</strong> - start immediately with no down payment<br>
+                    • <strong>Unlimited edits</strong> - make changes whenever you need<br>
+                    • <strong>Included hosting</strong> - no separate hosting fees<br>
+                    • <strong>24/7 support</strong> and lifetime updates</p>
+                    <p>It's ideal for businesses that want ongoing support and regular updates to their website.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What's included in the base price?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our Monthly Plan and Lump Sum plan include up to <strong>5 pages</strong>:</p>
+                    <p>• Home page<br>
+                    • About page<br>
+                    • Services page<br>
+                    • Contact page<br>
+                    • One additional page of your choice</p>
+                    <p>Additional pages are <strong>$125 each</strong>, and adding a blog is <strong>$225</strong>.</p>
+                    <p>Our Single Page and Event Page plan on the other hand, come with <strong>one page each</strong>, with the single page plan including a complementary contact page.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Can I cancel the monthly plan anytime?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can cancel the monthly plan for free after <strong>6 Months of continuous service</strong>. Should you cancel before the mandatory 6 month period you will be charged for the remaining cost of the website up to $1500. </p>
+                    <p>Also, if you cancel, you will lose access to website and need to find an alternative option for continuous service.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Questions -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">⚙</span>
+                Technical & Support
+            </h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What does "hand-coded" mean and why is it better?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Hand-coded</strong> means we write every line of HTML, CSS, and JavaScript from scratch instead of using page builders like WordPress, Wix, or Squarespace.</p>
+                    <p>Benefits include:<br>
+                    • <strong>Faster loading times</strong> - cleaner, optimized code<br>
+                    • <strong>Better SEO</strong> - Google prefers fast, well-structured sites<br>
+                    • <strong>Complete customization</strong> - no template limitations<br>
+                    • <strong>Better security</strong> - no plugin vulnerabilities</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Do you provide hosting and domain registration?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> We handle everything:</p>
+                    <p>• <strong>Domain registration</strong> - we'll help you choose and register the perfect domain name<br>
+                    • <strong>Web hosting</strong> - reliable, fast hosting included in our monthly plan<br>
+                    • <strong>SSL certificates</strong> - secure your site with HTTPS<br>
+                    • <strong>Email setup</strong> - professional email addresses with your domain</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What if my website goes down or has issues?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We provide <strong>24/7 monitoring and support</strong>. If there's ever an issue with your website, we'll:</p>
+                    <p>• <strong>Detect problems quickly</strong> with automated monitoring<br>
+                    • <strong>Fix issues immediately</strong> - often before you even notice<br>
+                    • <strong>Keep you informed</strong> about any maintenance or updates<br>
+                    • <strong>Maintain backups</strong> so your data is always safe</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How do edits and changes work?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Monthly plan clients</strong> get unlimited edits included - just contact us with your changes and we'll handle them quickly.</p>
+                    <p><strong>Lump sum clients</strong> pay $50/hour for edits with a 1-hour minimum. Most small changes (text updates, image swaps) are completed within an hour.</p>
+                    <p>All clients can request edits via phone, email, or our contact form.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Questions -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">🏢</span>
+                Business & Process
+            </h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What do you need from me to get started?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>To get started, we'll need:</p>
+                    <p>• <strong>Your business information</strong> - what you do, your target audience<br>
+                    • <strong>Content</strong> - text, images, logos you want on the site<br>
+                    • <strong>Design preferences</strong> - colors, styles, examples you like<br>
+                    • <strong>Contact information</strong> - phone, email, address, hours</p>
+                    <p>Don't worry if you don't have everything ready - we'll guide you through the process!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Do you help with content and copywriting?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Absolutely!</strong> We can help you:</p>
+                    <p>• <strong>Write compelling copy</strong> that converts visitors to customers<br>
+                    • <strong>Optimize content for SEO</strong> to help you rank on Google<br>
+                    • <strong>Structure information</strong> in a user-friendly way<br>
+                    • <strong>Source stock photos</strong> if you need professional images</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Will my website work on mobile phones?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> Every website we build is <strong>fully responsive</strong>, meaning it automatically adapts to look perfect on:</p>
+                    <p>• Desktop computers<br>
+                    • Tablets<br>
+                    • Smartphones<br>
+                    • All screen sizes</p>
+                    <p>With over 60% of web traffic coming from mobile devices, this is essential for your success.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Do you offer SEO services?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Basic SEO optimization is included</strong> with all our websites:</p>
+                    <p>• <strong>Fast loading speeds</strong> (Google's #1 ranking factor)<br>
+                    • <strong>Mobile optimization</strong><br>
+                    • <strong>Clean, semantic code</strong><br>
+                    • <strong>Proper meta tags and structure</strong><br>
+                    • <strong>Local SEO setup</strong> for local businesses</p>
+                    <p>For advanced SEO services and ongoing optimization, we can discuss additional packages.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-cta">
+        <h2 style="color: #ffffff;">Still Have Questions?</h2>
+        <p>Can't find the answer you're looking for? We're here to help! Contact us directly and we'll get back to you quickly.</p>
+        <a href="./contact.html" class="cta-button">Contact Us Today</a>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footertop">
+        <div class="footersub">
+            <h3>DEKALB WEB DESIGN</h3>
+            <div>+252 558 8589</div>
+        </div>
+        <div class="footersub">
+            <h3>NAVIGATION</h3>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footersub">
+            <h3>WORKING HOURS</h3>
+            <div>Have a question or concern? Feel free to contact us today!</div>
+            <table class="workingtable">
+                <tbody>
+                    <tr>
+                        <td>Hours</td>
+                        <th>24/7</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footersub">
+            <h3>SUBSCRIBE</h3>
+            <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
+                <div>
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="padding: 1rem 0;">Copyright © Dekalb Web Designs 2025</div>
+</div>
+
+<script>
+function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    const isActive = button.classList.contains('active');
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-question.active').forEach(activeButton => {
+        if (activeButton !== button) {
+            activeButton.classList.remove('active');
+            activeButton.nextElementSibling.classList.remove('active');
+        }
+    });
+    
+    // Toggle current FAQ item
+    if (isActive) {
+        button.classList.remove('active');
+        answer.classList.remove('active');
+    } else {
+        button.classList.add('active');
+        answer.classList.add('active');
+    }
+}
+
+// Close FAQ when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.faq-item')) {
+        document.querySelectorAll('.faq-question.active').forEach(button => {
+            button.classList.remove('active');
+            button.nextElementSibling.classList.remove('active');
+        });
+    }
+});
+</script>
+
+</body>
+</html>
