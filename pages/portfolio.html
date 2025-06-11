@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View our portfolio of custom hand-coded websites. Professional web design examples from DeKalb Web Design serving businesses in DeKalb County, GA.">
+    <title>Portfolio - Dekalb Web Design</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Portfolio specific styles that match the existing design language */
+        .portfolio-hero {
+            background: linear-gradient(135deg, #0252b1 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .portfolio-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .portfolio-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f0f4f8, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid #0252b1;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .portfolio-image::after {
+            content: '🌐';
+            font-size: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0252b1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-category {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .portfolio-description {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-tag {
+            background: #e0f2fe;
+            color: #0252b1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .portfolio-cta {
+            background: #0252b1;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .portfolio-cta:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        .stats-section {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0252b1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .testimonial-section {
+            background: linear-gradient(135deg, #0252b1 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+            
+            .portfolio-hero {
+                padding: 3rem 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="../index.html" style="color: #ffffff; font-size: clamp(1.5rem, 3vw, 1.875rem);">DEKALB WEB DESIGN</a>
+    </div>
+    <ul class="links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact Us</a></li>
+    </ul>
+</header>
+
+<div class="portfolio-hero">
+    <h1>Our Portfolio</h1>
+    <p>Discover the power of hand-coded websites. Each project showcases our commitment to fast, reliable, and beautifully designed web solutions for businesses across Georgia.</p>
+</div>
+
+<!--Hero area end-->
+<div class="hero_area">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+    </svg>
+</div>
+<!--Hero area end-->
+
+<div class="portfolio-grid">
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/testimage.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Local Restaurant Website</h3>
+            <div class="portfolio-category">Restaurant & Food Service</div>
+            <p class="portfolio-description">A modern, mobile-responsive website for a local DeKalb County restaurant featuring online menu, reservation system, and location details. Built with fast-loading hand-coded HTML and CSS.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">Mobile Responsive</span>
+                <span class="feature-tag">Online Menu</span>
+                <span class="feature-tag">Contact Forms</span>
+                <span class="feature-tag">SEO Optimized</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/template1.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Game Design Company</h3>
+            <div class="portfolio-category">Gaming & Design</div>
+            <p class="portfolio-description">Clean, professional website for a local game design company with service pages, portfolio, and reviews. Designed to build trust and convert visitors into clients.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">Professional Design</span>
+                <span class="feature-tag">Service Pages</span>
+                <span class="feature-tag">Team Profiles</span>
+                <span class="feature-tag">Review Testimonials</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/template2.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Marriage RSVP Website</h3>
+            <div class="portfolio-category">Marriage & Planning</div>
+            <p class="portfolio-description">Custom RSVP website for a local wedding with a guest form and back end data collection Hand-coded for maximum performance and user experience.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">RSVP</span>
+                <span class="feature-tag">Guest Survey</span>
+                <span class="feature-tag">Back-End Data</span>
+                <span class="feature-tag">Custom Questionaire</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/template3.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Plant Nursery Business</h3>
+            <div class="portfolio-category">Nursery & Plant Life</div>
+            <p class="portfolio-description">Plant-focused website for a plant nurturing practice, service information, and resources. HIPAA-compliant design with accessibility features.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">Appointment Booking</span>
+                <span class="feature-tag">Customer Portal</span>
+                <span class="feature-tag">HIPAA Compliant</span>
+                <span class="feature-tag">Accessibility</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/template6.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Home Services Company</h3>
+            <div class="portfolio-category">Home Services</div>
+            <p class="portfolio-description">Lead-generating website for a local HVAC company with service area maps, emergency contact options, and customer testimonials. Optimized for local SEO.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">Local SEO</span>
+                <span class="feature-tag">Service Areas</span>
+                <span class="feature-tag">Emergency Contact</span>
+                <span class="feature-tag">Quote Requests</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img class="portfolio-image" src="../images/template7.png">
+        <div class="portfolio-content">
+            <h3 class="portfolio-title">Event Planning</h3>
+            <div class="portfolio-category">Events & Entertainment</div>
+            <p class="portfolio-description">Elegant website showcasing event planning services with photo galleries, package options, and inquiry forms. Designed to highlight creativity and professionalism.</p>
+            <div class="portfolio-features">
+                <span class="feature-tag">Photo Galleries</span>
+                <span class="feature-tag">Package Pricing</span>
+                <span class="feature-tag">Event Calendar</span>
+                <span class="feature-tag">Inquiry Forms</span>
+            </div>
+            <a href="../pages/contact.html" class="portfolio-cta">View Details</a>
+        </div>
+    </div>
+</div>
+
+<div class="stats-section">
+    <h2 style="color: #0252b1; margin-bottom: 1rem;">Our Track Record</h2>
+    <p style="color: #6b7280; max-width: 600px; margin: 0 auto;">Numbers that speak to our commitment to excellence and client satisfaction.</p>
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Websites Delivered</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2.5s</div>
+            <div class="stat-label">Average Load Time</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support Available</div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonial-section">
+    <div class="testimonial-content">
+        <div class="testimonial-quote">
+            "DeKalb Web Design transformed our online presence completely. Our hand-coded website loads incredibly fast and has helped us attract more local customers than ever before."
+        </div>
+        <div class="testimonial-author">
+            - Sarah Johnson, Owner of Johnson's Local Bakery
+        </div>
+    </div>
+</div>
+
+<div class="bodythree">
+    <div class="testimonial">READY TO JOIN OUR SUCCESS STORIES?</div>
+    <div class="author">Let us create a custom, hand-coded website that showcases your business and drives results.</div>
+    <a href="../pages/contact.html">
+        <button class="button1" style="padding: 12px 16px">Start Your Project</button>
+    </a>
+</div>
+
+<div class="bodyfour">
+    <div class="bftext">
+        <div class="logo">Contact Us Today</div>
+        <div>Ready to see your business featured in our next success story? 
+            Contact us today to discuss your custom web design project.
+        </div>
+    </div>
+    <a href="../pages/contact.html">
+        <button class="button2" style="padding: 12px 16px">Get Started</button>
+    </a>
+</div>
+
+<div class="footer">
+    <div class="footertop">
+        <div class="footersub">
+            <h3>DEKALB WEB DESIGN</h3>
+            <div>+252 558 8589</div>
+        </div>
+        <div class="footersub">
+            <h3>NAVIGATION</h3>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/services.html">Services</a></li>
+                <li><a href="../pages/about.html">About Us</a></li>
+                <li><a href="../pages/portfolio.html">Portfolio</a></li>
+                <li><a href="../pages/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footersub">
+            <h3>WORKING HOURS</h3>
+            <div>Have a question or concern? Feel free to contact us today!</div>
+            <table class="workingtable">
+                <tbody>
+                    <tr>
+                        <td>Hours</td>
+                        <th>24/7</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footersub">
+            <h3>SUBSCRIBE</h3>
+            <form class="subbtn" action="https://formsubmit.co/5a2e46af93c6aa77ab3f80234f59ee0e" method="POST">
+                <input type="hidden" name="_next" value="https://dekalbwebdesign.com">
+                <div>
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="padding: 1rem 0;">Copyright © Dekalb Web Designs 2025</div>
+</div>
+
+</body>
+</html>
